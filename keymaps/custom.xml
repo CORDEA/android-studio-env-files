@@ -1,0 +1,6 @@
+<keymap version="1" name="custom" parent="Mac OS X 10.5+">
+  <action id="Macro.reformat &amp; save">
+    <keyboard-shortcut first-keystroke="meta s" />
+  </action>
+  <action id="SaveAll" />
+</keymap>
