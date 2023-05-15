@@ -18,7 +18,25 @@
 # Author: Yoshihiro Tanaka <contact@cordea.jp>
 # date  : 2023-04-29
 
-path=$(find ~/Library/Application\ Support/Google -type d -name "AndroidStudio*" | sort | tail -n 1)
+readonly ide=$1
+
+if [ -z "$ide" ]
+then
+    exit 1
+fi
+
+base_path=""
+case $ide in
+    "AndroidStudio")
+        base_path="$HOME/Library/Application Support/Google"
+    ;;
+    *)
+        base_path="$HOME/Library/Application Support/JetBrains"
+    ;;
+esac
+
+
+readonly path=$(find "$base_path" -type d -name "$ide*" | sort | tail -n 1)
 if [ ! -d "$path" ]
 then
     exit 1
